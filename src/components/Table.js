@@ -16,8 +16,8 @@ function Table(props) {
     />
   ));
   return (
-    <div>
-      <table>
+    <div className="container">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>Date</th>
