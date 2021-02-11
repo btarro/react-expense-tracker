@@ -1,19 +1,25 @@
 import React from "react";
 
-function Row(props) {
-  return (
-    <tr>
-      <td>{props.date}</td>
-      <td>{props.desc}</td>
-      <td>{props.loc}</td>
-      <td className="amount">${props.amount}</td>
-      <td>
-        <button type="button" className="btn btn-secondary">
-          <i class="fas fa-trash"></i>
-        </button>
-      </td>
-    </tr>
-  );
+class Row extends React.Component {
+  render() {
+    return (
+      <tr>
+        <td>{this.props.date}</td>
+        <td>{this.props.desc}</td>
+        <td>{this.props.loc}</td>
+        <td className="amount">${this.props.amount}</td>
+        <td>
+          <button
+            onClick={() => console.log("It's working!")}
+            type="button"
+            className="btn btn-secondary"
+          >
+            <i className="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    );
+  }
 }
 
 export default Row;
