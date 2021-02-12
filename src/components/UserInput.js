@@ -2,11 +2,9 @@ import React from "react";
 import Table from "./Table";
 
 class UserInput extends React.Component {
-  constructor() {
-    super();
-    this.state = [
-      { desc: "a thing", loc: "walmart", date: "1/21/21", amount: "34" },
-    ];
+  constructor(props) {
+    super(props);
+    this.state = {};
 
     this.gatherInput = this.gatherInput.bind(this);
   }
@@ -17,13 +15,22 @@ class UserInput extends React.Component {
     // let date = document.getElementById("date").value;
     // let amount = document.getElementById("amount").value;
 
-    let newState = this.state;
+    let newData = {
+      id: "1",
+      desc: "a thing",
+      loc: "walmart",
+      date: "1/21/21",
+      amount: "34",
+    };
+
+    //console.log("working?");
+    //console.log(newData);
+
+    this.setState(newData);
+    console.log(this.state);
   }
 
   render() {
-    const gatherInput = this.gatherInput;
-    //console.log(newState);
-
     return (
       <div className="userinput">
         <div className="form-row">
@@ -63,12 +70,12 @@ class UserInput extends React.Component {
           <div className="form-row">
             <button
               className="btn btn-secondary form-control"
-              onClick={gatherInput}
+              onClick={this.gatherInput}
             >
               Add To-Do
             </button>
             <div className="container">
-              <Table />
+              <Table data={this.state} />
             </div>
           </div>
         </div>

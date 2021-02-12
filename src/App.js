@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Title from "./components/Title";
 import UserInput from "./components/UserInput";
-import Table from "./components/Table";
+//import Table from "./components/Table";
 
 class App extends React.Component {
   render() {

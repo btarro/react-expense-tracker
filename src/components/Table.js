@@ -3,18 +3,11 @@ import Row from "./Row";
 
 class Table extends React.Component {
   render() {
-    const expenseData = [
-      { date: "2/7/21", desc: "Video Game", loc: "Amazon", amount: "55" },
-      { date: "1/15/21", desc: "Gum", loc: "Cornerstore", amount: "4" },
-    ];
-
-    //const expenseData = this.props;
-
-    console.log(this.props);
+    const expenseData = [this.props.data];
 
     const newRow = expenseData.map((item) => (
       <Row
-        key={item.desc}
+        key={item.id}
         date={item.date}
         desc={item.desc}
         loc={item.loc}
