@@ -8,6 +8,10 @@ class Table extends React.Component {
       { date: "1/15/21", desc: "Gum", loc: "Cornerstore", amount: "4" },
     ];
 
+    //const expenseData = this.props;
+
+    console.log(this.props);
+
     const newRow = expenseData.map((item) => (
       <Row
         key={item.desc}

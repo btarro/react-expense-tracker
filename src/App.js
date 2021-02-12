@@ -12,7 +12,7 @@ class App extends React.Component {
           <Title />
           <UserInput />
           <br></br>
-          <Table />
+          {/* <Table /> */}
         </div>
       </div>
     );
