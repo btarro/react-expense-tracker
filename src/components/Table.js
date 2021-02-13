@@ -1,9 +1,16 @@
 import React from "react";
 import Row from "./Row";
+import EmptyTable from "./EmptyTable";
 
 class Table extends React.Component {
   render() {
     const expenseData = [this.props.data];
+
+    if (Object.keys(expenseData[0]).length === 0) {
+      return <EmptyTable />;
+    }
+
+    console.log(expenseData);
 
     const newRow = expenseData.map((item) => (
       <Row

@@ -2,11 +2,18 @@ import React from "react";
 import Table from "./Table";
 
 class UserInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  constructor() {
+    super();
+    this.state = {
+      id: "0",
+      desc: "first",
+      loc: "amazon",
+      date: "2/21/21",
+      amount: "55",
+    };
 
     this.gatherInput = this.gatherInput.bind(this);
+    this.injectData = this.injectData.bind(this);
   }
 
   gatherInput() {
@@ -15,7 +22,7 @@ class UserInput extends React.Component {
     // let date = document.getElementById("date").value;
     // let amount = document.getElementById("amount").value;
 
-    let newData = {
+    const newData = {
       id: "1",
       desc: "a thing",
       loc: "walmart",
@@ -23,11 +30,24 @@ class UserInput extends React.Component {
       amount: "34",
     };
 
-    //console.log("working?");
-    //console.log(newData);
+    this.injectData(newData);
+  }
 
-    this.setState(newData);
-    console.log(this.state);
+  injectData(newData) {
+    this.setState((prevState) => {
+      return {
+        newData,
+      };
+    });
+
+    // const oldData = [this.state];
+    // console.log("OLD", oldData);
+
+    // //const newArray = [...oldData, newData];
+    // const newArray = [newData];
+    // console.log("NEW", newArray);
+
+    // this.setState(newArray);
   }
 
   render() {
