@@ -2,52 +2,37 @@ import React from "react";
 import Table from "./Table";
 
 class UserInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      id: "0",
-      desc: "first",
-      loc: "amazon",
-      date: "2/21/21",
-      amount: "55",
-    };
+  constructor(props) {
+    super(props);
+    this.state = { tableData: [{}] };
+    //this.state = {};
 
     this.gatherInput = this.gatherInput.bind(this);
     this.injectData = this.injectData.bind(this);
   }
 
   gatherInput() {
-    // let desc = document.getElementById("desc").value;
-    // let loc = document.getElementById("loc").value;
-    // let date = document.getElementById("date").value;
-    // let amount = document.getElementById("amount").value;
+    let desc = document.getElementById("desc").value;
+    let loc = document.getElementById("loc").value;
+    let date = document.getElementById("date").value;
+    let amount = document.getElementById("amount").value;
 
     const newData = {
-      id: "1",
-      desc: "a thing",
-      loc: "walmart",
-      date: "1/21/21",
-      amount: "34",
+      //id: "1",
+      desc: desc,
+      loc: loc,
+      date: date,
+      amount: amount,
     };
 
     this.injectData(newData);
+    console.log(newData);
   }
 
   injectData(newData) {
-    this.setState((prevState) => {
-      return {
-        newData,
-      };
-    });
-
-    // const oldData = [this.state];
-    // console.log("OLD", oldData);
-
-    // //const newArray = [...oldData, newData];
-    // const newArray = [newData];
-    // console.log("NEW", newArray);
-
-    // this.setState(newArray);
+    this.setState((prevState) => ({
+      tableData: [...this.state.tableData, newData],
+    }));
   }
 
   render() {
@@ -95,7 +80,7 @@ class UserInput extends React.Component {
               Add To-Do
             </button>
             <div className="container">
-              <Table data={this.state} />
+              <Table data={this.state.tableData} />
             </div>
           </div>
         </div>

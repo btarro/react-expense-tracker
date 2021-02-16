@@ -10,7 +10,7 @@ class Row extends React.Component {
         <td className="amount">${this.props.amount}</td>
         <td>
           <button
-            onClick={() => console.log("It's working!")}
+            onClick={(e) => console.log("DELETE ME")}
             type="button"
             className="btn btn-secondary"
           >
