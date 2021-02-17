@@ -4,35 +4,43 @@ import Table from "./Table";
 class UserInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { tableData: [{}] };
-    //this.state = {};
+    this.state = { tableData: [] };
 
     this.gatherInput = this.gatherInput.bind(this);
     this.injectData = this.injectData.bind(this);
   }
 
   gatherInput() {
-    let desc = document.getElementById("desc").value;
-    let loc = document.getElementById("loc").value;
-    let date = document.getElementById("date").value;
-    let amount = document.getElementById("amount").value;
+    const DESC = document.getElementById("desc").value;
+    const LOC = document.getElementById("loc").value;
+    const DATE = document.getElementById("date").value;
+    const AMOUNT = document.getElementById("amount").value;
 
     const newData = {
-      //id: "1",
-      desc: desc,
-      loc: loc,
-      date: date,
-      amount: amount,
+      desc: DESC,
+      loc: LOC,
+      date: DATE,
+      amount: AMOUNT,
     };
 
     this.injectData(newData);
-    console.log(newData);
+    this.inputCleanup();
   }
 
   injectData(newData) {
     this.setState((prevState) => ({
       tableData: [...this.state.tableData, newData],
     }));
+  }
+
+  inputCleanup() {
+    document.querySelectorAll(".form-control").forEach((formField) => {
+      formField.value = "";
+    });
+  }
+
+  removeData(props) {
+    console.log("CALL INTO PARENT TEST");
   }
 
   render() {
@@ -44,7 +52,7 @@ class UserInput extends React.Component {
               id="desc"
               type="text"
               className="form-control"
-              placeholder="What?"
+              placeholder="What was your expense?"
             ></input>
           </div>
           <div className="col">
@@ -52,7 +60,7 @@ class UserInput extends React.Component {
               id="loc"
               type="text"
               className="form-control"
-              placeholder="Where?"
+              placeholder="Expense location?"
             ></input>
           </div>
         </div>

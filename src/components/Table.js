@@ -4,16 +4,15 @@ import EmptyTable from "./EmptyTable";
 
 class Table extends React.Component {
   render() {
-    const expenseData = this.props.data;
-    console.log(this.props);
+    const EXPENSEDATA = this.props.data;
 
-    // if (Object.keys(expenseData[0]).length === 0) {
-    //   return <EmptyTable />;
-    // }
+    if (EXPENSEDATA.length === 0) {
+      return <EmptyTable />;
+    }
 
-    const newRow = expenseData.map((item) => (
+    const newRow = EXPENSEDATA.map((item) => (
       <Row
-        key={item.id}
+        key={item.index}
         date={item.date}
         desc={item.desc}
         loc={item.loc}

@@ -1,7 +1,7 @@
 import React from "react";
-
 class Row extends React.Component {
   render() {
+    console.log(this.state);
     return (
       <tr>
         <td>{this.props.date}</td>
@@ -10,7 +10,7 @@ class Row extends React.Component {
         <td className="amount">${this.props.amount}</td>
         <td>
           <button
-            onClick={(e) => console.log("DELETE ME")}
+            onClick={(e) => console.log(this.props)}
             type="button"
             className="btn btn-secondary"
           >

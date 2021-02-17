@@ -11,7 +11,6 @@ class App extends React.Component {
           <Title />
           <UserInput />
           <br></br>
-          {/* <Table /> */}
         </div>
       </div>
     );

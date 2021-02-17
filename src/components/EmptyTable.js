@@ -4,7 +4,10 @@ class EmptyTable extends React.Component {
   render() {
     return (
       <div>
-        <p>Enter an expense!</p>
+        <br></br>
+        <p>
+          <em>Please enter your first expense</em>
+        </p>
       </div>
     );
   }
