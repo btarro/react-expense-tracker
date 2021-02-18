@@ -6,7 +6,7 @@ class EmptyTable extends React.Component {
       <div>
         <br></br>
         <p>
-          <em>Please enter your first expense</em>
+          <em>please enter an expense</em>
         </p>
       </div>
     );

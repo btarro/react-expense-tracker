@@ -93,7 +93,7 @@ class UserInput extends React.Component {
               className="btn btn-secondary form-control"
               onClick={this.gatherInput}
             >
-              Add To-Do
+              Add Expense
             </button>
             <div className="container">
               <Table rd={this.removeData} data={this.state.tableData} />

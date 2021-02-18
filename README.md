@@ -1,30 +1,27 @@
-# React based expense Tracker
+# React based `Expense Tracker`
 
-### An improved expense tracker based on React
+### An improved expense tracker leveraging React & Bootstrap
 
-<!-- #### Check it out [here](https://btarro.github.io/snake-game) -->
+#### Check it out [here](https://bt-expense-tracker.herokuapp.com/)
 
-<!-- ![](assets/readme-image.png) -->
+![](public/expense-tracker.gif)
 
 ## Summary
 
-WIP
+This app was written leveraging React & Bootstrap. The focus of this project was to build an expense tracker that improved upon the earlier vanilla JavaScript version availble [here](https://github.com/btarro/expense-tracker-app)
 
-<!-- This app was written using basic HTML (canvas), CSS, and JavaScript (no libraries). The focus of this project was to build a snake game with an ultra-responsive snake and a retro arcade feel. -->
+Features:
 
-<!-- Features:
-
-- Super smooth snake movement and controls
-- score / high-score keeping
-- 'start / attraction' screen
-- 'Game Over' screen
-- Variable tunables (Speed, growth, point value, etc)
+- Responsive Design
+- Add / Remove expenses
+- Capture: Description, Location, Date, and Amount
+-
 
 In the future versions I'd like to:
 
-- refactor the logic
-- Store "high-score" beyond the current session
-- Add 'mode-select' and give users access to some of the tunables -->
+- add balance
+- Store expenses beyond the current session
+- add sorting
 
 ## Author
 

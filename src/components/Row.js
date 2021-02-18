@@ -11,10 +11,10 @@ class Row extends React.Component {
 
     return (
       <tr className="align-middle">
-        <td>{this.props.date}</td>
-        <td>{this.props.desc}</td>
-        <td>{this.props.loc}</td>
-        <td className="amount">{currency}</td>
+        <td className="align-middle">{this.props.date}</td>
+        <td className="align-middle">{this.props.desc}</td>
+        <td className="align-middle">{this.props.loc}</td>
+        <td className="amount align-middle">{currency}</td>
         <td>
           <button
             onClick={(e) => this.props.deleteExpense(this.props.id)}
