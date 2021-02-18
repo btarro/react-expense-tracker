@@ -1,4 +1,4 @@
-# React based `Expense Tracker`
+# React based Expense Tracker
 
 ### An improved expense tracker leveraging React & Bootstrap
 
@@ -15,7 +15,6 @@ Features:
 - Responsive Design
 - Add / Remove expenses
 - Capture: Description, Location, Date, and Amount
--
 
 In the future versions I'd like to:
 
