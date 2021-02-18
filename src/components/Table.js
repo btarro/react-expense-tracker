@@ -10,9 +10,11 @@ class Table extends React.Component {
       return <EmptyTable />;
     }
 
-    const newRow = EXPENSEDATA.map((item) => (
+    const NEWROW = EXPENSEDATA.map((item) => (
       <Row
-        key={item.index}
+        deleteExpense={this.props.rd}
+        key={item.id}
+        id={item.id}
         date={item.date}
         desc={item.desc}
         loc={item.loc}
@@ -28,10 +30,9 @@ class Table extends React.Component {
               <th>Description</th>
               <th>Location</th>
               <th>Amount</th>
-              <th>Del?</th>
             </tr>
           </thead>
-          <tbody>{newRow}</tbody>
+          <tbody>{NEWROW}</tbody>
         </table>
       </div>
     );

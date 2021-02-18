@@ -1,18 +1,25 @@
 import React from "react";
+
 class Row extends React.Component {
-  render() {
-    console.log(this.state);
+  render(props) {
+    const AMNT = this.props.amount;
+
+    let currency = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(AMNT);
+
     return (
-      <tr>
+      <tr className="align-middle">
         <td>{this.props.date}</td>
         <td>{this.props.desc}</td>
         <td>{this.props.loc}</td>
-        <td className="amount">${this.props.amount}</td>
+        <td className="amount">{currency}</td>
         <td>
           <button
-            onClick={(e) => console.log(this.props)}
+            onClick={(e) => this.props.deleteExpense(this.props.id)}
             type="button"
-            className="btn btn-secondary"
+            className="btn delete"
           >
             <i className="fas fa-trash"></i>
           </button>

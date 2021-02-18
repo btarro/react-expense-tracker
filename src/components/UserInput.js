@@ -8,28 +8,34 @@ class UserInput extends React.Component {
 
     this.gatherInput = this.gatherInput.bind(this);
     this.injectData = this.injectData.bind(this);
+    this.removeData = this.removeData.bind(this);
   }
-
   gatherInput() {
     const DESC = document.getElementById("desc").value;
     const LOC = document.getElementById("loc").value;
     const DATE = document.getElementById("date").value;
     const AMOUNT = document.getElementById("amount").value;
+    const KEY = Math.random().toString(36).substr(2, 9);
 
-    const newData = {
+    if (!DESC || !LOC || !DATE || !AMOUNT) {
+      alert("Please fill in all fields");
+      return;
+    }
+    const NEWEXPENSE = {
+      id: KEY,
       desc: DESC,
       loc: LOC,
       date: DATE,
       amount: AMOUNT,
     };
 
-    this.injectData(newData);
+    this.injectData(NEWEXPENSE);
     this.inputCleanup();
   }
 
-  injectData(newData) {
+  injectData(NEWEXPENSE) {
     this.setState((prevState) => ({
-      tableData: [...this.state.tableData, newData],
+      tableData: [...this.state.tableData, NEWEXPENSE],
     }));
   }
 
@@ -40,7 +46,9 @@ class UserInput extends React.Component {
   }
 
   removeData(props) {
-    console.log("CALL INTO PARENT TEST");
+    this.setState({
+      tableData: this.state.tableData.filter((data) => data.id !== props),
+    });
   }
 
   render() {
@@ -72,7 +80,7 @@ class UserInput extends React.Component {
           <div className="col">
             <input
               id="amount"
-              type="number"
+              type="currency"
               className="form-control"
               placeholder="$"
             ></input>
@@ -88,7 +96,7 @@ class UserInput extends React.Component {
               Add To-Do
             </button>
             <div className="container">
-              <Table data={this.state.tableData} />
+              <Table rd={this.removeData} data={this.state.tableData} />
             </div>
           </div>
         </div>

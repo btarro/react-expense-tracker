@@ -24,3 +24,11 @@ code {
 .amount {
   color: coral;
 }
+
+.delete:hover {
+  background-color: orange;
+}
+
+.table .th .td {
+  vertical-align: bottom;
+}
