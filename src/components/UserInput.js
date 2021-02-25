@@ -1,81 +1,48 @@
 import React from "react";
-import Table from "./Table";
 
-class UserInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { tableData: [] };
-
-    this.gatherInput = this.gatherInput.bind(this);
-    this.injectData = this.injectData.bind(this);
-    this.removeData = this.removeData.bind(this);
-  }
-  gatherInput() {
-    const DESC = document.getElementById("desc").value;
-    const LOC = document.getElementById("loc").value;
-    const DATE = document.getElementById("date").value;
-    const AMOUNT = document.getElementById("amount").value;
-    const KEY = Math.random().toString(36).substr(2, 9);
-
-    if (!DESC || !LOC || !DATE || !AMOUNT) {
-      alert("Please fill in all fields");
-      return;
-    }
-    const NEWEXPENSE = {
-      id: KEY,
-      desc: DESC,
-      loc: LOC,
-      date: DATE,
-      amount: AMOUNT,
-    };
-
-    this.injectData(NEWEXPENSE);
-    this.inputCleanup();
-  }
-
-  injectData(NEWEXPENSE) {
-    this.setState((prevState) => ({
-      tableData: [...this.state.tableData, NEWEXPENSE],
-    }));
-  }
-
-  inputCleanup() {
-    document.querySelectorAll(".form-control").forEach((formField) => {
-      formField.value = "";
-    });
-  }
-
-  removeData(props) {
-    this.setState({
-      tableData: this.state.tableData.filter((data) => data.id !== props),
-    });
-  }
-
-  render() {
-    return (
-      <div className="userinput">
+const UserInput = (props) => {
+  return (
+    <div className="userinput">
+      <form onSubmit={props.handleSubmit}></form>
+      <form>
         <div className="form-row">
           <div className="col">
             <input
-              id="desc"
+              id="description"
               type="text"
               className="form-control"
               placeholder="What was your expense?"
+              name="description"
+              value={props.description}
+              onChange={props.handleChange}
+              required
             ></input>
           </div>
           <div className="col">
             <input
-              id="loc"
+              id="location"
               type="text"
               className="form-control"
               placeholder="Expense location?"
+              name="location"
+              value={props.location}
+              onChange={props.handleChange}
+              required
             ></input>
           </div>
         </div>
         <br></br>
         <div className="form-row">
           <div className="col">
-            <input id="date" type="date" className="form-control"></input>
+            <input
+              id="date"
+              type="date"
+              className="form-control"
+              name="date"
+              value={props.date}
+              onChange={props.handleChange}
+              required
+            ></input>
           </div>
           <div className="col">
             <input
@@ -83,6 +50,10 @@ class UserInput extends React.Component {
               type="currency"
               className="form-control"
               placeholder="$"
+              name="amount"
+              value={props.amount}
+              onChange={props.handleChange}
+              required
             ></input>
           </div>
         </div>
@@ -91,18 +62,16 @@ class UserInput extends React.Component {
           <div className="form-row">
             <button
               className="btn btn-secondary form-control"
-              onClick={this.gatherInput}
+              type="submit"
+              onClick={props.handleSubmit}
             >
               Add Expense
             </button>
-            <div className="container">
-              <Table rd={this.removeData} data={this.state.tableData} />
-            </div>
           </div>
         </div>
-      </div>
-    );
-  }
-}
+      </form>
+    </div>
+  );
+};
 
 export default UserInput;
